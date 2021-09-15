@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  gitlab:
+    image: 'gitlab/gitlab-ee:latest'
+    tty: true
+    ports:
+      - '443:443'
+      - '8000:80'
+      - '22:22'
+    container_name: gitlab
+    hostname: 'gitlab.clover.com'
+    restart: 'no'
+    volumes:
+      - /home/cloverhsc/Misc/gitlab/config:/etc/gitlab
+      - /home/cloverhsc/Misc/gitlab/logs:/var/log/gitlab
+      - /home/cloverhsc/Misc/gitlab/data:/var/opt/gitlab
